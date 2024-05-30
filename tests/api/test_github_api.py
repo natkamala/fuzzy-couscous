@@ -32,13 +32,11 @@ def test_repo_with_single_char_be_found(github_api):
 
     @pytest.mark.api
 def test_get_emojis(github_api):
-    """Тестує отримання списку Emoji."""
     result = github_api.get_emojis()
     assert 'octocat' in result  
 
 @pytest.mark.api
 def test_list_commits(github_api):
-    """Тестує отримання комітів репозиторію."""
     owner = "octocat"
     repo = "Hello-World"
     result = github_api.list_commits(owner, repo)
@@ -47,7 +45,6 @@ def test_list_commits(github_api):
 
 @pytest.mark.api
 def test_commit_pagination(github_api):
-    """Тестує пагінацію комітів."""
     owner = "octocat"
     repo = "Hello-World"
     result = github_api.list_commits(owner, repo)
@@ -55,7 +52,6 @@ def test_commit_pagination(github_api):
 
 @pytest.mark.api
 def test_no_commits_for_empty_repo(github_api):
-    """Тестує відсутність комітів у порожньому репозиторії."""
     owner = "octocat"
     repo = "empty-repo"
     result = github_api.list_commits(owner, repo)
